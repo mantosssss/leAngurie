@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Angurie - Fruit Bar</title>
+    
+    <!-- Favicon e icone varie dimensioni -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Use the latest stable version with direct CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@lottiefiles/lottie-player@1.7.1/dist/lottie-player.min.js"></script>
+    <!-- Add DotLottie player as an alternative -->
+    <script src="https://unpkg.com/@dotlottie/player-component@1.4.0/dist/dotlottie-player.js"></script>
+</head>
+<body>
+    <div id="loading-overlay">
+        <div class="loading-content">
+            <!-- First try with the lottie-player -->
+            <lottie-player
+                id="lottie-animation"
+                src="animation.json"
+                background="transparent"
+                speed="1"
+                style="width:150px; height:150px;"
+                loop
+                autoplay>
+            </lottie-player>
+            
+            <!-- Alternative dotlottie player (initially hidden) -->
+            <dotlottie-player
+                id="dotlottie-animation"
+                src="animation.json"
+                background="transparent"
+                speed="1"
+                style="width:150px; height:150px; display:none;"
+                loop
+                autoplay>
+            </dotlottie-player>
+            
+            <!-- Fallback spinner (initially hidden) -->
+            <div id="fallback-spinner" class="spinner" style="display: none;"></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <a href="#" class="logo-link">
+                    <img src="logoangurie.png" alt="Le Angurie Fruit Bar" class="logo-img">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">Chi Siamo</a></li>
+                    <li><a href="#menu">Specialità</a></li>
+                    <li><a href="#map">Vieni a trovarci</a></li>
+                    <li><a href="#social">Social</a></li>
+                    <li><a href="#reviews">Recensioni</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <!-- Video background for mobile only -->
+        <div class="mobile-video-container">
+            <video id="mobile-bg-video" playsinline muted loop preload="auto">
+                <source src="reelangurie2.mp4" type="video/mp4">
+            </video>
+        </div>
+        <!-- Static background for desktop -->
+        <div class="desktop-bg"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tagline">Il tuo Fruit Bar di Fiducia</span>
+                <h1>La freschezza ha un sapore,<br>e noi la serviamo a fette</h1>
+                <p>Anguria fresca, frutta di stagione, specialità locali. Il tuo angolo preferito per una pausa di gusto e benessere.</p>
+                <div class="hero-cta">
+                    <a href="https://maps.app.goo.gl/tAnUQZ9vgB5GSDT17" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-map-marker-alt"></i> Vieni a Trovarci
+                    </a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-medal"></i>
+                        <span>Qualità Garantita</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-leaf"></i>
+                        <span>Prodotti Freschi</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-sun"></i>
+                        <span>Aperto Tutti i Giorni</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <a href="#about">
+                <span>Scopri</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Chi Siamo</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Benvenuti a <strong>Le Angurie</strong>, dove celebriamo la dolcezza naturale e la qualità rinfrescante della frutta di stagione. Il nostro Fruit Bar è dedicato a servire frutta della più alta qualità in modi creativi e deliziosi.</p>
+                    <p>Oltre alla nostra Anguria, che riposa all'interno di vasche di acqua corrente per mantenerne la freschezza, fatti tentare dalle nostre selezioni di <strong>frutta di stagione</strong>, gustose <strong>pesche al vino</strong> e bellissime (e buonissime) <strong>macedonie</strong>!</p>
+                    <p>Ogni prodotto è preparato quotidianamente con ingredienti locali e di primissima scelta, garantendoti una esperienza gustosa e nutriente</p>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <img src="walterprimopiano.jpg" alt="Walter primo piano" class="circular-image">
+                    </div>
+                </div>
+            </div>
+            <div class="about-cta">
+                <a href="https://maps.app.goo.gl/tAnUQZ9vgB5GSDT17" target="_blank" class="btn btn-map">
+                    <i class="fas fa-map-marker-alt"></i> Trovaci su Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">Le Nostre Specialità</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-image watermelon">
+                        <img src="anguriaprimopiano.png" alt="Anguria Fresca" class="menu-img">
+                    </div>
+                    <div class="item-content">
+                        <h3>Anguria Fresca</h3>
+                        <p>Fette di anguria succosa e dolce, perfettamente refrigerate e pronte da gustare.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-image fruits">
+                        <img src="fruttapremium.jpg" alt="Frutta Premium" class="menu-img">
+                    </div>
+                    <div class="item-content">
+                        <h3>Frutta Premium</h3>
+                        <p>Frutta di stagione della più alta qualità, attentamente selezionata per un sapore e una freschezza ottimali.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-image pesche">
+                        <img src="peschealvino.png" alt="Pesche al Vino" class="menu-img">
+                    </div>
+                    <div class="item-content">
+                        <h3>Pesche al Vino</h3>
+                        <p>Pesche succose marinate nel vino rosso con spezie, servite fresche: un dessert leggero ma ricco di sapore.</p>
+                    </div>
+                </div>
+                
+                <!-- Mobile CTA - visibile solo su dispositivi mobili -->
+                <div class="mobile-cta">
+                    <a href="https://maps.app.goo.gl/tAnUQZ9vgB5GSDT17" target="_blank">
+                        Vieni a trovarci
+                    </a>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="item-image macedonia">
+                        <img src="macedonia.png" alt="Macedonia" class="menu-img">
+                    </div>
+                    <div class="item-content">
+                        <h3>Macedonia</h3>
+                        <p>Splendide insalate di frutta che combinano la migliore frutta di stagione per uno spuntino rinfrescante.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-image tramezzini">
+                        <video class="menu-video" autoplay muted loop playsinline>
+                            <source src="tramezzo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="item-content">
+                        <h3>Tramezzini Fatti in Casa</h3>
+                        <p>Deliziosi tramezzini preparati ogni giorno con ingredienti freschi e di qualità, ideali per uno spuntino veloce e gustoso.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-image birre">
+                        <img src="birreesotiche.png" alt="Birre Esotiche" class="menu-img">
+                    </div>
+                    <div class="item-content">
+                        <h3>Birre Esotiche</h3>
+                        <p>Una selezione di birre artigianali, perfette per accompagnare le nostre specialità o da gustare in relax.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-footer">
+                <p>e molto altro ancora!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="map" class="mapoutermaps">
+        <div class="mapouter">
+            <div class="gmap_canvas">
+               <iframe
+  width="100%"
+  height="350"
+  id="gmap_canvas"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2781.804687028674!2d13.58070887737886!3d45.79514051129537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477b096e978c0aeb%3A0x6d170a10c0c85915!2sBar%20Le%20Angurie!5e0!3m2!1sit!2sit!4v1745058304500!5m2!1sit!2sit"
+  frameborder="0"
+  scrolling="no"
+  marginheight="0"
+  marginwidth="0"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+            </div>
+            <style>
+                .mapouter {
+                    position: relative;
+                    text-align: right;
+                    height: 350px;
+                    width: 100%;
+                }
+
+                .gmap_canvas {
+                    overflow: hidden;
+                    background: none !important;
+                    height: 350px;
+                    width: 100%;
+                }
+            </style>
+        </div>
+        <div class="map-cta">
+            <a href="https://maps.app.goo.gl/tAnUQZ9vgB5GSDT17" target="_blank" class="btn btn-map-large">
+                <i class="fas fa-directions"></i> Indicazioni stradali
+            </a>
+        </div>
+    </section>
+
+    <!-- Sezione Social e Mappa -->
+    <section id="social" class="social-section">
+        <div class="container">
+            <h2 class="section-title">I nostri profili</h2>
+            <div class="social-icons-large">
+                <a href="https://www.facebook.com/leangurie.it" target="_blank" class="social-icon-large facebook">
+                    <i class="fab fa-facebook-square"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/leangurie" target="_blank" class="social-icon-large instagram">
+                    <i class="fab fa-instagram-square"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://maps.app.goo.gl/tAnUQZ9vgB5GSDT17" target="_blank" class="social-icon-large maps">
+                    <i class="fas fa-location-arrow"></i>
+                    <span>Google Maps</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Recensioni -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <h2 class="section-title">Le opinioni dei nostri clienti</h2>
+            
+            <!-- Rating Summary -->
+            <div class="rating-summary">
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="rating-value">4.5</span>
+                </div>
+                <p class="total-reviews">Basato su oltre 300 recensioni di google maps</p>
+            </div>
+            
+            <!-- Reviews Grid -->
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-icon">M</div>
+                            <div class="reviewer-name">
+                                <h4>Marco B.</h4>
+                                <p class="review-date">15 luglio 2023</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"Ho provato l'anguria tagliata al momento e devo dire che era incredibilmente fresca e dolce. Il locale è molto carino e pulito, il personale gentilissimo. Consigliato per una pausa rinfrescante in città!"</p>
+                    </div>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-icon">L</div>
+                            <div class="reviewer-name">
+                                <h4>Laura M.</h4>
+                                <p class="review-date">3 agosto 2023</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"La macedonia con frutta fresca di stagione è stata una vera delizia! Prezzi onesti e porzioni abbondanti. Unico neo: un po' di attesa nei giorni di punta, ma ne vale assolutamente la pena."</p>
+                    </div>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-icon">G</div>
+                            <div class="reviewer-name">
+                                <h4>Giovanni T.</h4>
+                                <p class="review-date">20 giugno 2023</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"Le pesche al vino sono fenomenali, mi ricordano quelle che faceva mia nonna! Locale accogliente e personale disponibile. L'anguria è sempre ben refrigerata e succosa. Tornerò sicuramente!"</p>
+                    </div>
+                </div>
+                
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-icon">S</div>
+                            <div class="reviewer-name">
+                                <h4>Sofia P.</h4>
+                                <p class="review-date">10 agosto 2023</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"Ho provato questo posto durante una calda giornata estiva ed è stata una salvezza! La frutta è sempre freschissima e di alta qualità. I prezzi sono giusti per la qualità offerta. Atmosfera rilassante e staff cordiale!"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="reviews-cta">
+                <a href="https://maps.app.goo.gl/tAnUQZ9vgB5GSDT17" target="_blank" class="btn btn-map">
+                    <i class="fas fa-store-alt"></i> Vieni a trovarci
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logoangurie.png" alt="Le Angurie Fruit Bar" class="footer-logo-img">
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/leangurie.it" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.instagram.com/leangurie" target="_blank"><i class="fab fa-instagram-square"></i></a>
+                    <a href="https://maps.app.goo.gl/tAnUQZ9vgB5GSDT17" target="_blank"><i class="fas fa-location-arrow"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="#about">Chi Siamo</a>
+                <a href="#menu">Specialità</a>
+                <a href="#map">Vieni a trovarci</a>
+                <a href="#reviews">Recensioni</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Le Angurie. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
