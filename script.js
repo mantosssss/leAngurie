@@ -352,4 +352,23 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         window.addEventListener('load', setupScrollHoverEffects);
     }
+
+    // Disable hover animations for hero feature icons
+    const featureIcons = document.querySelectorAll('.hero .feature i');
+    featureIcons.forEach(icon => {
+        // Remove any hover effects by disabling transitions
+        icon.style.transition = 'none';
+        icon.style.transform = 'none';
+        
+        // Add fixed styles
+        icon.parentElement.style.pointerEvents = 'none'; // Disable hover interactions
+    });
+    
+    // Remove scroll-triggered animations for feature icons
+    window.addEventListener('scroll', function() {
+        const features = document.querySelectorAll('.hero .feature');
+        features.forEach(feature => {
+            feature.classList.remove('hover-activated');
+        });
+    });
 }); 
